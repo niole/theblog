@@ -12,7 +12,9 @@
     "node-sass": "^4.9.3",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.22.1",
-    "tslint": "^5.11.0"
+    "tslint": "^5.11.0",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0"
   },
   "devDependencies": {
     "@types/jest": "^23.3.1",
@@ -21,12 +23,10 @@
     "ts-jest": "^23.1.4",
     "ts-loader": "^4.5.0",
     "typescript": "^3.0.1",
-    "webpack": "^4.17.1",
-    "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5"
   },
   "scripts": {
-    "start": "webpack-dev-server --mode development",
+    "start": "webpack-dev-server --mode development --host $HOST --port $PORT",
     "build": "webpack -p --mode production",
     "serve": "node index.js",
     "test": "jest --watch"
