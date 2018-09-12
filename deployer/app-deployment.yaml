@@ -20,6 +20,7 @@ spec:
         image: niole/theblog:latest
         ports:
         - containerPort: 8080
+          name: blog-ui-port
 ---
 apiVersion: v1
 kind: Service
@@ -31,7 +32,7 @@ spec:
     app: appd
   ports:
   - port: 80
-    targetPort: 8080
+    targetPort: blog-ui-port
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
