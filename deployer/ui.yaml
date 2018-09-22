@@ -7,8 +7,12 @@ spec:
   selector:
     k8s-app: traefik-ingress-lb-edit
   ports:
-    - port: 80
-      targetPort: 8080
+    - protocol: TCP
+      port: 80
+      name: web
+    - protocol: TCP
+      port: 8080
+      name: admin
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress

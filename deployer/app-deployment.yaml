@@ -31,7 +31,11 @@ spec:
   selector:
     app: appd
   ports:
+  - port: 443
+    name: secure-traffic
+    targetPort: blog-ui-port
   - port: 80
+    name: insecure-traffic
     targetPort: blog-ui-port
 ---
 apiVersion: extensions/v1beta1
@@ -42,6 +46,8 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: traefik
 spec:
+  tls:
+    - secretName: traefik-ui-tls-cert
   rules:
   - host: blog.niole
     http:
